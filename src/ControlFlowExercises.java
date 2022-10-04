@@ -5,7 +5,7 @@ public class ControlFlowExercises {
 
         int i = 5;
         while (i <= 15) {
-            System.out.println(i);
+            System.out.print(i);
             i++;
         }
 
@@ -55,20 +55,33 @@ public class ControlFlowExercises {
             }
         }
 
+//
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("input a number");
+//        int input = sc.nextInt();
+
+//
+//        System.out.println("here is your table");
+//        System.out.println("Number | Squared | Cubed");
+//        System.out.println("-------------------------");
+//        for (int n = 1; n <= input; n++) {
+//            System.out.println(n + "    |    " + (int) Math.pow(n, 2) + "     |    " + (int) Math.pow(n, 3));
+//        }
+
 
         Scanner sc = new Scanner(System.in);
         System.out.println("input a number");
         int input = sc.nextInt();
-
-
-        System.out.println("here is your table");
         System.out.println("Number | Squared | Cubed");
         System.out.println("-------------------------");
-        for (int n = 1; n <= input; n++) {
-            System.out.println(n + "    |    " + (int) Math.pow(n, 2) + "     |    " + (int) Math.pow(n, 3));
+        for (int n = 1; n <= input; n++){
+            System.out.printf("%-6d | %-7d | %-6d\n",n,(int) Math.pow(n, 2), (int) Math.pow(n, 3)   );
         }
 
-        System.out.println("enter grade between 1 to 100");
+
+
+        
+            System.out.println("enter grade between 1 to 100");
         int grade = sc.nextInt();
         if (grade <= 100 && grade >= 88) {
             System.out.println("A");
