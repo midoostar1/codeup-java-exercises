@@ -24,6 +24,9 @@ public class HighLow {
             System.out.printf("u have %d left\n", guessLeft - 1);
             System.out.println("go higher");
             guessLeft -= 1;
+            if(guessLeft<1){
+                System.out.println("Game Over");
+                System.exit(0);}
             randomG();
 
         } else if (userguess > (int) random) {
@@ -31,6 +34,9 @@ public class HighLow {
             System.out.printf("u have %d left\n", guessLeft - 1);
             System.out.println("go lower");
             guessLeft -= 1;
+            if(guessLeft<1){
+                System.out.println("Game Over");
+                System.exit(0);}
             randomG();
 
         }
