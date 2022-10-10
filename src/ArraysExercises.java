@@ -16,7 +16,7 @@ public class ArraysExercises {
            System.out.println(array.getName());
 
            Person man = new Person("mido");
-           man.
+
        }
     }
 }
