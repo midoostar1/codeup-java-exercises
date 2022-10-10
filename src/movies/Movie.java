@@ -8,16 +8,16 @@ public class Movie {
       this.category = category;
   }
 
-  String getName(){
+ public  String getName(){
       return name;
   }
-  String getCategory(){
+ public String getCategory(){
       return category;
   }
-   void setName(String name){
+ public   void setName(String name){
       this.name = name;
    }
-   void setCategory(String category){
+ public   void setCategory(String category){
       this.category = category;
    }
 }

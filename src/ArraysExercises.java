@@ -15,9 +15,18 @@ public class ArraysExercises {
        for(Person array :arr){
            System.out.println(array.getName());
 
-           Person man = new Person("mido");
-
        }
+
+        System.out.println("-------------------------------------------");
+        Person man = new Person("mido");
+
+
+        //using the addPerson method created
+       Person[]arr1 = Person.addPerson(arr,man);
+
+        for(Person array :arr1) {
+            System.out.println(array.getName());
+        }
     }
 }
 

@@ -20,6 +20,16 @@ this.name = name;
 
     }
 
+ public static Person[] addPerson(Person[] arr, Person person){
+
+ Person[] newArr =  Arrays.copyOf(arr, arr.length+1);
+ newArr[newArr.length-1] = person;
+
+     return newArr;
+ }
+
+
+
 
 //*************************************************************
     public static void main(String[] args) {
@@ -46,6 +56,8 @@ this.name = name;
         person2.setName("Jane");
         System.out.println(person1.getName());
         System.out.println(person2.getName());
+
+
 
     }
 }

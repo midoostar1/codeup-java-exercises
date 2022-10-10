@@ -1,6 +1,10 @@
 package movies;
 
-public class MoviesArray {
+public class MoviesArray extends Movie{
+
+    public MoviesArray(String name, String category) {
+        super(name, category);
+    }
 
     public static Movie[]
     findAll() {
