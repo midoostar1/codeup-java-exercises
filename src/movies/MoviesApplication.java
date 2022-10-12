@@ -20,7 +20,7 @@ public class MoviesApplication {
     public static void searchMovie() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("What would you like to do?");
+        System.out.println("What type of movie do  you like to view?");
         System.out.println(" 0 - exit");
         System.out.println(" 1 - view all movies");
         System.out.println(" 2 - view movies in the animated category");
