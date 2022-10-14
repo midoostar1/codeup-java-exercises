@@ -1,25 +1,29 @@
 package grocery;
 
 
-import java.util.Scanner;
+
+
 import util.Input;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
 
 public class GroceryApplication {
 
     public static void main(String[] args) {
-        ArrayList<String> categories = new ArrayList<String>();
-        categories.add("Beverages");
-        categories.add("Canned");
-        categories.add("Dairy");
-        categories.add("Meat");
-        categories.add("Frozen Foods");
+        ArrayList<String> showCategories = new ArrayList<String>();
+        showCategories.add("Beverages");
+        showCategories.add("Canned");
+        showCategories.add("Dairy");
+        showCategories.add("Meat");
+        showCategories.add("Frozen Foods");
 
 
 Scanner sc = new Scanner(System.in);
-        HashMap<String, String> grocery = new HashMap<>();
+        ArrayList<Grocery> grocery = new ArrayList<>();
 
 
 boolean Continue = false;
@@ -34,10 +38,10 @@ boolean Continue = false;
         String response = sc.nextLine();
         if (response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes")) {
 
-            for (int i = 0; i < categories.size(); i++) {
-                System.out.println(i + 1+ ": " + categories.get(i));
+            for (int i = 0; i < showCategories.size(); i++) {
+                System.out.println(i + 1+ ": " + showCategories.get(i));
             }
-        }else {System.exit(0); }
+        }else {System.exit(0);}
 
 
 
@@ -47,29 +51,44 @@ boolean Continue = false;
             int chosecat = Input.getInt();
 
             System.out.println("Enter the name of the item");
-            String name = sc.nextLine();
-          System.out.println("How many of " + name + " do u want?");
+            String item = sc.nextLine();
+          System.out.println("How many of " + item + " do u want?");
 int quantity = Input.getInt();
           switch (chosecat) {
                 case 1:
-                    add(quantity, name, categories.get(0), grocery);
+                   Grocery name =  new Grocery(quantity,item,showCategories.get(0));
+                   grocery.add(name);
                     break;
                 case 2:
-                    add(quantity,name, categories.get(1), grocery);
+                     name =  new Grocery(quantity,item,showCategories.get(1));
+                    grocery.add(name);
                     break;
                 case 3:
-                    add(quantity,name, categories.get(2), grocery);
+                    name =  new Grocery(quantity,item,showCategories.get(2));
+                    grocery.add(name);
                     break;
                 case 4:
-                    add(quantity,name, categories.get(3), grocery);
+                    name =  new Grocery(quantity,item,showCategories.get(3));
+                    grocery.add(name);
                     break;
                 case 5:
-                    add(quantity,name, categories.get(4), grocery);
-            }
+                    name =  new Grocery(quantity,item,showCategories.get(4));
+                    grocery.add(name);
+          }
             ask();
             int answer = Input.getInt();
             if (answer == 1) {
-                System.out.println(grocery);
+
+                grocery.sort(new Comparator<Grocery>() {
+                    @Override
+                    public int compare(Grocery o1, Grocery o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+
+               for(Grocery items:grocery){
+                   System.out.println(items);
+               }
 Continue = true;
 
             } else if (answer == 2) {
@@ -95,23 +114,6 @@ public static void ItemPrompt(){
         System.out.println("would you like to create a grocery list");
 
     }
-
-
-    public void groceryCat(){
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-    }
-
-public static HashMap<String,String> add(int num, String st1, String st2, HashMap <String,String> hashMap ){
-      String main = num+" ";
-    hashMap.put(main+st1,st2);
-    return hashMap;
-}
 
 
     public static void ask(){
